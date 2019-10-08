@@ -7,5 +7,6 @@ const generateUsers = count =>
   }));
 
 module.exports = {
-  showError
+  showError,
+  generateUsers
 };

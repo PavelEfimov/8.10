@@ -1,5 +1,10 @@
 import Axios from 'axios';
 
-const getUsers = () => Axios.get('/users');
+const getUsers = search =>
+  Axios.get('/users', {
+    params: {
+      search
+    }
+  });
 
 export { getUsers };

@@ -2,6 +2,10 @@ const { join } = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const { generateUsers } = require('./utils');
+
+const users = generateUsers(50);
+
 const app = express();
 
 app.use(bodyParser());
@@ -13,13 +17,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/users', (req, res) => {
-  res.send(users);
-});
+  const { search } = req.query;
 
-app.post('/user', (req, res) => {
-  users.push(req.body);
+  console.log(search);
 
-  res.sendStatus(200);
+  res.send(users.filter(i => i.name.includes(search)));
 });
 
 app.listen(3000, () => console.log('port 3000'));
