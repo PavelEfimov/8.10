@@ -2,13 +2,13 @@ const { join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: join(__dirname, 'index.jsx'),
+  entry: join(__dirname, 'scripts', 'index.jsx'),
   output: {
     path: join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.css'],
     alias: {
       source: join(__dirname, 'sources'),
       utils: join(__dirname, 'utils')
